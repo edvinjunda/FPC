@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="100.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxControllers.FoodNameAndStatusWindow">
+   <children>
+      <TextField fx:id="dishName" alignment="CENTER" prefHeight="25.0" prefWidth="150.0" promptText="Enter name" />
+      <Button fx:id="setButton" layoutX="151.0" layoutY="60.0" mnemonicParsing="false" onAction="#SetNameAndStatus" prefHeight="25.0" prefWidth="100.0" text="Set" />
+      <ComboBox fx:id="dishStatus" layoutX="150.0" prefHeight="25.0" prefWidth="125.0" />
+      <ComboBox fx:id="dishPortionSize" layoutX="276.0" prefHeight="25.0" prefWidth="125.0" />
+   </children>
+</AnchorPane>

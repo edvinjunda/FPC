@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxControllers.FoodWindow">
+    <tabs>
+        <Tab onSelectionChanged="#SearchFoodList" text="Food list">
+            <content>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="800.0">
+                    <children>
+                        <HBox prefHeight="25.0" prefWidth="600.0">
+                            <children>
+                                <TextField fx:id="searchNameList" onAction="#SearchFoodList" prefHeight="25.0" prefWidth="150.0" promptText="Food name" />
+                        <ComboBox fx:id="searchStatusList" onAction="#SearchFoodList" prefWidth="125.0" />
+                            </children>
+                        </HBox>
+                        <ListView fx:id="allFoodsList" layoutY="50.0" onMouseClicked="#ViewFoodInfo" prefHeight="370.0" prefWidth="225.0">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#AddToDish" text="Add to dish" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                        </ListView>
+                        <TextField fx:id="nameList" editable="false" layoutX="225.0" layoutY="25.0" prefHeight="26.0" prefWidth="375.0" promptText="Name" />
+                        <TextField fx:id="priceList" editable="false" layoutX="225.0" layoutY="50.0" prefHeight="25.0" prefWidth="50.0" promptText="Price" />
+                        <TextField fx:id="partsAmountList" editable="false" layoutX="275.0" layoutY="50.0" prefHeight="25.0" prefWidth="75.0" promptText="Amount" />
+                  <TextField fx:id="statusList" editable="false" layoutX="350.0" layoutY="50.0" prefHeight="25.0" prefWidth="125.0" promptText="Status" />
+                        <TextArea fx:id="foodNotesList" editable="false" layoutX="225.0" layoutY="75.0" prefHeight="345.0" prefWidth="375.0" promptText="Notes" wrapText="true" />
+                  <ListView fx:id="currentDishList" layoutX="599.0" layoutY="51.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="370.0" prefWidth="200.0">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#RemoveFromDish" text="remove from dish" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </ListView>
+                  <Button layoutX="705.0" layoutY="1.0" mnemonicParsing="false" onAction="#CreateDish" prefHeight="25.0" prefWidth="95.0" text="Cook" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="25.0" prefHeight="25.0" prefWidth="225.0" text="Food list" />
+                  <Label alignment="CENTER" layoutX="599.0" layoutY="27.0" prefHeight="25.0" prefWidth="200.0" text="Dish list" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab onSelectionChanged="#searchFoodManage" text="Food management">
+            <content>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="800.0">
+                    <children>
+                  <TabPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="420.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab onSelectionChanged="#searchFoodManage" text="Manage food">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <HBox layoutY="1.0" prefHeight="26.0" prefWidth="600.0">
+                                       <children>
+                                          <TextField fx:id="searchFoodNameManagement" onAction="#searchFoodManage" prefHeight="25.0" prefWidth="150.0" promptText="Food name" />
+                                          <ComboBox fx:id="searchFoodStatusManagement" onAction="#searchFoodManage" prefWidth="125.0" />
+                                       </children>
+                                    </HBox>
+                                          <ListView fx:id="foodManagementList" layoutY="26.0" onMouseClicked="#LoadFoodInfo" prefHeight="365.0" prefWidth="300.0">
+                                              <contextMenu>
+                                                  <ContextMenu>
+                                                      <items>
+                                                          <MenuItem mnemonicParsing="false" onAction="#DeleteFood" text="Delete food" />
+                                                      </items>
+                                                  </ContextMenu>
+                                              </contextMenu>
+                                          </ListView>
+                                          <AnchorPane layoutX="300.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="390.0" prefWidth="500.0">
+                                              <children>
+                                          <TextField fx:id="foodNameManagement" layoutY="25.0" prefHeight="25.0" prefWidth="225.0" promptText="Name" />
+                                          <TextField fx:id="foodPriceManagement" layoutX="225.0" layoutY="25.0" prefHeight="25.0" prefWidth="50.0" promptText="Price" />
+                                          <TextField fx:id="foodPartsAmountManagement" layoutX="275.0" layoutY="25.0" prefHeight="25.0" prefWidth="75.0" promptText="Amount" />
+                                          <ComboBox fx:id="foodStatusManagement" layoutX="350.0" layoutY="25.0" prefWidth="150.0" />
+                                                  <TextArea fx:id="foodNotesManagement" layoutY="50.0" prefHeight="250.0" prefWidth="500.0" promptText="Food notes" wrapText="true" />
+                                          <Button layoutX="175.0" layoutY="350.0" mnemonicParsing="false" onAction="#ClearFoodManagementFields" prefHeight="25.0" prefWidth="150.0" text="Clear fields" />
+                                                  <Button fx:id="addFoodButton" layoutX="24.0" layoutY="350.0" mnemonicParsing="false" onAction="#CreateFood" prefHeight="25.0" prefWidth="150.0" text="Add food" />
+                                                  <Button fx:id="updateFoodButton" layoutX="326.0" layoutY="350.0" mnemonicParsing="false" onAction="#UpdateFood" prefHeight="25.0" prefWidth="150.0" text="Update food info" />
+                                              </children>
+                                          </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab onSelectionChanged="#searchDishManage" text="Manage dishes">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="772.0">
+                                 <children>
+                                    <HBox prefHeight="25.0" prefWidth="450.0">
+                                       <children>
+                                          <TextField fx:id="searchDishName" onAction="#searchDishManage" prefHeight="25.0" prefWidth="200.0" promptText="Name" />
+                                          <ComboBox fx:id="searchDishStatus" onAction="#searchDishManage" prefHeight="25.0" prefWidth="125.0" />
+                                          <ComboBox fx:id="searchDishPortionSize" onAction="#searchDishManage" prefWidth="125.0" />
+                                       </children>
+                                    </HBox>
+                                    <ListView fx:id="dishManagementList" layoutY="25.0" onMouseClicked="#LoadDishInfo" prefHeight="365.0" prefWidth="400.0">
+                                       <contextMenu>
+                                          <ContextMenu>
+                                            <items>
+                                                <MenuItem mnemonicParsing="false" onAction="#AddDishToList" text="Add ingredients to list" />
+                                              <MenuItem mnemonicParsing="false" onAction="#DeleteDish" text="Delete dish" />
+                                            </items>
+                                          </ContextMenu>
+                                       </contextMenu></ListView>
+                                    <ListView fx:id="dishFoodList" layoutX="400.0" layoutY="25.0" onMouseClicked="#EnableAmountChanging" prefHeight="365.0" prefWidth="250.0" />
+                                    <TextField fx:id="dishNameManagement" layoutX="650.0" layoutY="25.0" prefHeight="25.0" prefWidth="150.0" promptText="Name" />
+                                    <ComboBox fx:id="dishStatusManagement" layoutX="650.0" layoutY="50.0" prefWidth="150.0" visibleRowCount="4" />
+                                    <ComboBox fx:id="dishPortionSizeManagement" layoutX="650.0" layoutY="75.0" prefWidth="150.0" visibleRowCount="4" />
+                                    <Button fx:id="updateDishButton" layoutX="665.0" layoutY="101.0" mnemonicParsing="false" onAction="#UpdateDish" prefWidth="60.0" text="Update" />
+                                    <Button layoutX="725.0" layoutY="101.0" mnemonicParsing="false" onAction="#ClearDishManagementFields" prefWidth="60.0" text="Clear" />
+                                    <Label layoutX="650.0" prefHeight="25.0" prefWidth="150.0" text="Dish" />
+                                    <Label layoutX="650.0" layoutY="195.0" prefHeight="25.0" prefWidth="150.0" text="Food in dish amount" />
+                                    <TextField fx:id="foodInDishAmount" layoutX="650.0" layoutY="220.0" prefHeight="25.0" prefWidth="150.0" promptText="Amount" />
+                                    <Button fx:id="changeAmountInDishButton" layoutX="695.0" layoutY="246.0" mnemonicParsing="false" onAction="#ChangeAmountInDish" prefWidth="60.0" text="Change" />
+                                 </children>
+                          </AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

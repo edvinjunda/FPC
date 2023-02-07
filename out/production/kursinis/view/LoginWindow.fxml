@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxControllers.LoginWindow">
+    <children>
+        <TextField fx:id="loginF" layoutX="100.0" layoutY="30.0" prefHeight="25.0" prefWidth="150.0" AnchorPane.leftAnchor="103.0" AnchorPane.rightAnchor="48.400000000000006" />
+        <PasswordField fx:id="passwordF" layoutX="100.0" layoutY="80.0" prefHeight="25.0" prefWidth="150.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="47.400000000000006" />
+        <Label layoutX="40.0" layoutY="30.0" prefHeight="20.0" prefWidth="55.0" text="Login:" />
+        <Label layoutX="40.0" layoutY="80.0" prefHeight="20.0" prefWidth="55.0" text="Password:" />
+        <Button layoutX="40.0" layoutY="150.0" mnemonicParsing="false" onAction="#validateAndLoad" prefHeight="25.0" prefWidth="60.0" text="Log in" />
+        <Button layoutX="200.0" layoutY="150.0" mnemonicParsing="false" onAction="#loadSignUpWindow" prefHeight="25.0" prefWidth="60.0" text="Sign up" />
+    </children>
+</AnchorPane>

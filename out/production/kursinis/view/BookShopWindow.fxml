@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<TabPane fx:id="tabPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxControllers.BookShopWindow">
+    <tabs>
+        <Tab fx:id="myAccount" text="My account">
+            <content>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="800.0">
+                    <children>
+                  <TabPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="420.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab text="Account">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                          <Button fx:id="logOutButton" layoutX="728.0" layoutY="351.0" mnemonicParsing="false" onAction="#logOut" prefWidth="60.0" text="Log out" />
+                                    <TextField fx:id="personNameF" editable="false" layoutX="16.0" layoutY="19.0" prefHeight="25.0" prefWidth="150.0" promptText="Name" />
+                                    <TextField fx:id="personSurnameF" editable="false" layoutX="16.0" layoutY="44.0" prefHeight="25.0" prefWidth="150.0" promptText="Surname" />
+                                    <TextField fx:id="companyTitleF" editable="false" layoutX="16.0" layoutY="19.0" prefHeight="25.0" prefWidth="150.0" promptText="Company title" />
+                                    <TextField fx:id="addressF" editable="false" layoutX="166.0" layoutY="19.0" prefHeight="25.0" prefWidth="150.0" promptText="Address" />
+                                    <TextField fx:id="phoneNumF" editable="false" layoutX="46.0" layoutY="70.0" prefHeight="25.0" prefWidth="120.0" promptText="phone number" />
+                                    <TextField fx:id="loginF" editable="false" layoutX="16.0" layoutY="122.0" prefHeight="25.0" prefWidth="150.0" promptText="login" />
+                                    <PasswordField fx:id="passwordF" editable="false" layoutX="16.0" layoutY="148.0" prefHeight="25.0" prefWidth="150.0" promptText="password" />
+                                    <PasswordField fx:id="passwordRepeatF" layoutX="16.0" layoutY="174.0" prefHeight="25.0" prefWidth="150.0" promptText="password (repeat)" />
+                                    <Label layoutX="16.0" layoutY="74.0" prefWidth="30.0" text="+370" />
+                                    <Button fx:id="editUserButton" layoutX="16.0" layoutY="200.0" mnemonicParsing="false" onAction="#editUserInfo" prefWidth="40.0" text="Edit" />
+                                    <Button fx:id="saveUserButton" layoutX="56.0" layoutY="200.0" mnemonicParsing="false" onAction="#saveUserInfo" prefWidth="50.0" text="Save" />
+                                    <Label fx:id="confirmLabel" layoutX="166.0" layoutY="178.0" text="Enter password again to confirm" />
+                                    <Button fx:id="cancelButton" layoutX="106.0" layoutY="200.0" mnemonicParsing="false" onAction="#loadUserInfo" prefWidth="60.0" text="Cancel" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab onSelectionChanged="#viewCartsInfo" text="Manage carts">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <ListView fx:id="buyerCart" onMouseClicked="#viewBuyerCartBooks" prefHeight="390.0" prefWidth="150.0">
+                                       <contextMenu>
+                                          <ContextMenu>
+                                            <items>
+                                              <MenuItem fx:id="cancelCartMenuItem" mnemonicParsing="false" onAction="#cancelCart" text="Cancel cart" />
+                                            </items>
+                                          </ContextMenu>
+                                       </contextMenu></ListView>
+                                    <ListView fx:id="buyerCartBooks" layoutX="150.0" prefHeight="390.0" prefWidth="200.0">
+                                       <contextMenu>
+                                          <ContextMenu>
+                                             <items>
+                                                <MenuItem mnemonicParsing="false" onAction="#writeComment" text="Write comment" />
+                                                <MenuItem mnemonicParsing="false" onAction="#addToCart" text="Add to cart" />
+                                             </items>
+                                          </ContextMenu>
+                                       </contextMenu>
+                                    </ListView>
+                                    <HBox layoutX="350.0" layoutY="1.0" prefHeight="25.0" prefWidth="150.0">
+                                       <children>
+                                          <TextField fx:id="searchBuyerCartId" onAction="#searchBuyerCart" prefWidth="40.0" promptText="id" />
+                                          <ComboBox fx:id="searchBuyerCartStatus" onAction="#searchBuyerCart" prefWidth="110.0" />
+                                       </children>
+                                    </HBox>
+                                 </children></AnchorPane>
+                        </content>
+                      </Tab>
+                    </tabs>
+                  </TabPane>
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="bookShop" onSelectionChanged="#searchBooksCust" text="Book shop">
+            <content>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="800.0">
+                    <children>
+                        <HBox fx:id="searchBar" layoutY="1.0" prefHeight="26.0" prefWidth="600.0">
+                            <children>
+                                <TextField fx:id="searchBookCustF" onAction="#searchBooksCust" prefHeight="25.0" prefWidth="150.0" promptText="Book title" />
+                                <TextField fx:id="searchAuthorsCustF" onAction="#searchBooksCust" prefHeight="25.0" prefWidth="150.0" promptText="Authors" />
+                                <DatePicker fx:id="searchFromDateCust" onAction="#searchBooksCust" prefHeight="25.0" prefWidth="150.0" promptText="Publish from" />
+                                <DatePicker fx:id="searchToDateCust" onAction="#searchBooksCust" prefHeight="25.0" prefWidth="150.0" promptText="Publish to" />
+                            </children>
+                        </HBox>
+                        <ListView fx:id="allBooksClient" layoutY="51.0" onMouseClicked="#viewBookInfo" prefHeight="370.0" prefWidth="200.0">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                              <MenuItem mnemonicParsing="false" onAction="#writeComment" text="Write comment" />
+                            <MenuItem mnemonicParsing="false" onAction="#addToCart" text="Add to cart" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu></ListView>
+                        <TextField fx:id="bookTitleF" editable="false" layoutX="200.0" layoutY="27.0" prefHeight="25.0" prefWidth="200.0" />
+                        <TextField fx:id="bookAuthorsF" editable="false" layoutX="400.0" layoutY="27.0" prefHeight="25.0" prefWidth="200.0" />
+                        <DatePicker fx:id="bookPublishDateF" editable="false" layoutX="200.0" layoutY="53.0" prefHeight="25.0" prefWidth="150.0" />
+                        <TextField fx:id="bookPageNumF" editable="false" layoutX="350.0" layoutY="53.0" prefHeight="25.0" prefWidth="100.0" />
+                        <TextField fx:id="bookInStockF" editable="false" layoutX="449.0" layoutY="53.0" prefHeight="25.0" prefWidth="50.0" />
+                        <TextField fx:id="bookPriceF" editable="false" layoutX="500.0" layoutY="53.0" prefHeight="25.0" prefWidth="100.0" />
+                        <TextArea fx:id="bookDescriptionF" editable="false" layoutX="200.0" layoutY="79.0" prefHeight="200.0" prefWidth="400.0" wrapText="true" />
+                  <Button layoutX="705.0" layoutY="1.0" mnemonicParsing="false" onAction="#createCart" prefHeight="25.0" prefWidth="95.0" text="Buy" />
+                  <ListView fx:id="currentOrderList" layoutX="599.0" layoutY="51.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="370.0" prefWidth="200.0">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem mnemonicParsing="false" onAction="#removeFromCart" text="remove from cart" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu></ListView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="27.0" prefHeight="25.0" prefWidth="200.0" text="Book list" />
+                  <Label alignment="CENTER" layoutX="599.0" layoutY="27.0" prefHeight="25.0" prefWidth="200.0" text="Cart list" />
+                  <TreeView fx:id="bookCommentTree" layoutX="200.0" layoutY="279.0" onMouseClicked="#disableCommentButtons" prefHeight="145.0" prefWidth="400.0">
+                     <contextMenu>
+                        <ContextMenu>
+                          <items>
+                            <MenuItem fx:id="commentReplyButton" mnemonicParsing="false" onAction="#addReply" text="Add reply" />
+                              <MenuItem fx:id="commentDeleteButton" mnemonicParsing="false" onAction="#deleteComment" text="Delete comment" />
+                              <MenuItem fx:id="commentEditButton" mnemonicParsing="false" onAction="#editComment" text="Edit comment" />
+                          </items>
+                        </ContextMenu>
+                     </contextMenu>
+                  </TreeView>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="employeeTools" onSelectionChanged="#searchBooksEmp" text="Employee tools">
+            <content>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="800.0">
+                    <children>
+                  <TabPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="420.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab onSelectionChanged="#searchBooksEmp" text="Manage books">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                          <ListView fx:id="employeeBookList" layoutY="25.0" onMouseClicked="#refresh" prefHeight="365.0" prefWidth="300.0">
+                                              <contextMenu>
+                                                  <ContextMenu>
+                                                      <items>
+                                                          <MenuItem mnemonicParsing="false" onAction="#editBook" text="Edit book" />
+                                                          <MenuItem mnemonicParsing="false" onAction="#deleteBook" text="Delete book" />
+                                                      </items>
+                                                  </ContextMenu>
+                                              </contextMenu>
+                                          </ListView>
+                                          <AnchorPane layoutX="300.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="390.0" prefWidth="500.0">
+                                              <children>
+                                                  <TextField fx:id="createBookTitle" layoutY="25.0" prefHeight="25.0" prefWidth="250.0" promptText="Enter book title" />
+                                                  <TextField fx:id="createBookAuthors" layoutX="250.0" layoutY="25.0" prefHeight="25.0" prefWidth="250.0" promptText="Enter authors" />
+                                                  <DatePicker fx:id="createBookPublishDate" editable="false" layoutY="50.0" prefHeight="25.0" prefWidth="200.0" promptText="Enter publish date" />
+                                                  <TextField fx:id="createBookPageNum" layoutX="200.0" layoutY="50.0" prefHeight="26.0" prefWidth="100.0" promptText="Enter page number" />
+                                                  <TextField fx:id="createBookInStock" layoutX="300.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" promptText="In stock" />
+                                                  <TextField fx:id="createBookPrice" layoutX="400.0" layoutY="50.0" prefHeight="25.0" prefWidth="100.0" promptText="Price" />
+                                                  <Button fx:id="addBookButton" layoutX="50.0" layoutY="350.0" mnemonicParsing="false" onAction="#createBook" prefHeight="25.0" prefWidth="150.0" text="Add book" />
+                                                  <Button fx:id="updateBookButton" layoutX="300.0" layoutY="350.0" mnemonicParsing="false" onAction="#updateBook" prefHeight="25.0" prefWidth="150.0" text="Update book info" />
+                                                  <TextArea fx:id="createBookDescription" layoutX="50.0" layoutY="75.0" prefHeight="250.0" prefWidth="400.0" promptText="Enter book description" wrapText="true" />
+                                              </children>
+                                          </AnchorPane>
+                                    <HBox fx:id="searchBar1" prefHeight="26.0" prefWidth="600.0">
+                                       <children>
+                                          <TextField fx:id="searchBookEmpF" onAction="#searchBooksEmp" prefHeight="25.0" prefWidth="150.0" promptText="Book title" />
+                                          <TextField fx:id="searchAuthorsEmpF" onAction="#searchBooksEmp" prefHeight="25.0" prefWidth="150.0" promptText="Authors" />
+                                          <DatePicker fx:id="searchFromDateEmp" onAction="#searchBooksEmp" prefHeight="25.0" prefWidth="150.0" promptText="Publish from" />
+                                          <DatePicker fx:id="searchToDateEmp" onAction="#searchBooksEmp" prefHeight="25.0" prefWidth="150.0" promptText="Publish to" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab fx:id="employeeManageCarts" onSelectionChanged="#loadCartsInfo" text="Manage Carts">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField fx:id="buyerId" editable="false" layoutX="340.0" layoutY="1.0" />
+                                    <TextField fx:id="buyerSurname" editable="false" layoutX="340.0" layoutY="53.0" />
+                                    <TextField fx:id="buyerAddress" editable="false" layoutX="490.0" layoutY="1.0" />
+                                    <TextField fx:id="buyerCompanyTitle" editable="false" layoutX="340.0" layoutY="27.0" />
+                                    <ComboBox fx:id="cartStatus" layoutX="649.0" layoutY="1.0" prefWidth="150.0" visibleRowCount="4" />
+                                    <Button fx:id="saveEditedCartButton" layoutX="739.0" layoutY="338.0" mnemonicParsing="false" onAction="#saveEditedCart" prefWidth="60.0" text="Save" />
+                                    <Button fx:id="cancelCartEditButton" layoutX="739.0" layoutY="364.0" mnemonicParsing="false" onAction="#cancelCartEdit" prefWidth="60.0" text="Cancel" />
+                                    <ListView fx:id="employeeCartsInfo" layoutY="25.0" onMouseClicked="#viewEmpCartInfo" prefHeight="365.0" prefWidth="150.0">
+                                       <contextMenu>
+                                          <ContextMenu>
+                                             <items>
+                                                <MenuItem mnemonicParsing="false" onAction="#editCart" text="Edit cart" />
+                                             </items>
+                                          </ContextMenu>
+                                       </contextMenu>
+                                    </ListView>
+                                    <TextField fx:id="buyerName" editable="false" layoutX="340.0" layoutY="27.0" />
+                                    <ListView fx:id="empCartBooks" layoutX="150.0" layoutY="25.0" prefHeight="365.0" prefWidth="150.0">
+                                       <contextMenu>
+                                          <ContextMenu>
+                                             <items>
+                                                <MenuItem mnemonicParsing="false" onAction="#writeComment" text="Write comment" />
+                                                <MenuItem mnemonicParsing="false" onAction="#addToCart" text="Add to cart" />
+                                             </items>
+                                          </ContextMenu>
+                                       </contextMenu>
+                                    </ListView>
+                                    <HBox layoutY="1.0" prefHeight="25.0" prefWidth="150.0">
+                                       <children>
+                                          <TextField fx:id="searchCartId" onAction="#searchEmpCart" prefWidth="40.0" promptText="id" />
+                                          <ComboBox fx:id="searchCartStatus" onAction="#searchEmpCart" prefWidth="110.0" />
+                                       </children>
+                                    </HBox>
+                                 </children></AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab onSelectionChanged="#loadAllCartsInfo" text="Cart supervising employees">
+                           <content>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <ListView fx:id="cartSupervisingEmps" layoutX="150.0" layoutY="25.0" prefHeight="365.0" prefWidth="200.0" />
+                                    <HBox prefHeight="25.0" prefWidth="150.0">
+                                       <children>
+                                          <TextField fx:id="searchSupervisingCartId" onAction="#searchSupervisingCart" prefWidth="40.0" promptText="id" />
+                                          <ComboBox fx:id="searchSupervisingCartStatus" onAction="#searchSupervisingCart" prefWidth="110.0" />
+                                       </children>
+                                    </HBox>
+                                    <ListView fx:id="supervisingCartsInfo" layoutY="25.0" onMouseClicked="#loadSupervisingEmps" prefHeight="365.0" prefWidth="150.0">
+                                       <contextMenu>
+                                          <ContextMenu>
+                                            <items>
+                                              <MenuItem mnemonicParsing="false" onAction="#addCartForManaging" text="Add cart for managing" />
+                                            </items>
+                                          </ContextMenu>
+                                       </contextMenu></ListView>
+                                    <Label layoutX="207.0" layoutY="5.0" text="Cart distribution" />
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+        <Tab fx:id="adminTools" text="Admin tools">
+            <content>
+                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="450.0" prefWidth="800.0">
+                    <children>
+                        <TabPane prefHeight="420.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab fx:id="manageUsersTool" onSelectionChanged="#loadUsers" text="Manage Users">
+                                    <content>
+                                        <TableView fx:id="usersTable" prefHeight="420.0" prefWidth="800.0">
+                                            <columns>
+                                                <TableColumn fx:id="colId" editable="false" prefWidth="30.0" text="id" />
+                                                <TableColumn fx:id="colLogin" editable="false" prefWidth="75.0" text="login" />
+                                                <TableColumn fx:id="colDateCreated" editable="false" prefWidth="75.0" text="dateCreated" />
+                                                <TableColumn fx:id="colDateModified" editable="false" prefWidth="89.60003662109375" text="dateModified" />
+                                                <TableColumn fx:id="colPhoneNum" editable="false" prefWidth="98.39996337890625" text="phone number" />
+                                                <TableColumn fx:id="colRole" editable="false" prefWidth="81.60003662109375" text="role" />
+                                                <TableColumn fx:id="colName" editable="false" prefWidth="64.79998779296875" text="name" />
+                                                <TableColumn fx:id="colSurname" editable="false" prefWidth="85.5999755859375" text="surname" />
+                                                <TableColumn fx:id="colCompanyTitle" editable="false" prefWidth="112.800048828125" text="company title" />
+                                                <TableColumn fx:id="colAddress" editable="false" prefWidth="90.4000244140625" text="address" />
+                                                <TableColumn fx:id="actionsField" prefWidth="150.0" text="Actions" />
+                                            </columns>
+                                        </TableView>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                    </children></AnchorPane>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

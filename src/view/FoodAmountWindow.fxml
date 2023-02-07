@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="60.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxControllers.FoodAmountWindow">
+   <children>
+      <TextField fx:id="foodInDishAmount" alignment="CENTER" layoutX="125.0" layoutY="1.0" prefHeight="25.0" prefWidth="150.0" promptText="Enter food amount/pieces" />
+      <Button fx:id="setButton" layoutX="75.0" layoutY="29.0" mnemonicParsing="false" onAction="#setAmount" prefHeight="25.0" prefWidth="100.0" text="Set" />
+      <Button fx:id="cancelButton" layoutX="225.0" layoutY="29.0" mnemonicParsing="false" onAction="#cancelAmount" prefHeight="25.0" prefWidth="100.0" text="Cancel" />
+   </children>
+</AnchorPane>
